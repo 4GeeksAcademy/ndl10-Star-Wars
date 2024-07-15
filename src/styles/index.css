@@ -2,6 +2,126 @@
     General Styles
 */
 
-body {
+ body {
     background-image: url("https://i.makeagif.com/media/8-11-2018/jET9FZ.gif");
+} 
+
+.navbarcito{
+    background-color: rgba(0, 0, 0, 0.79);
+}
+
+.card {
+    min-width: 280px;
+    max-width: 280px;
+    flex: 0 0 auto;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.card-body {
+    padding: 10px;
+}
+.horizontal-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 60px;
+    padding-bottom: 10px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 42px 82px rgba(0, 0, 0, 0.2);
+}
+/* Ancho de la scrollbar */
+.scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 40px;
+}
+
+/* Track de la scrollbar */
+.scroll::-webkit-scrollbar-track {
+    background: black;
+    border-radius: 10px;
+    border: 2px solid yellow;
+    box-shadow: inset 0 0 5px rgb(0, 0, 0);
+}
+
+/* Thumb de la scrollbar */
+.scroll::-webkit-scrollbar-thumb {
+    background: url(https://i.pinimg.com/736x/f7/9e/8f/f79e8ff6618f9e7430e49830ac022157.jpg) no-repeat;
+    background-size:contain;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 10px;
+}
+
+/* Thumb al pasar el ratón
+.scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #888, #555);
+} */
+
+.altura {
+    min-height: 500px;
+    /* Altura mínima */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgba(0, 255, 255, 0.707);
+}
+
+.limited-image {
+    width: 100%;
+    /* Asegura que la imagen ocupe todo el ancho */
+    height: 500px;
+    /* Ocupa todo el espacio vertical */
+    object-fit: cover;
+    /* Ajuste para evitar distorsión */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.col-md-7 {
+    padding: 0;
+    /* Eliminar padding para asegurar el ancho completo */
+}
+
+.col-md-5 {
+    padding: 0;
+    /* Eliminar padding para que las columnas encajen perfectamente */
+}
+
+.custom-box {
+    min-width: 190px;
+    max-width: 190px;
+    flex: 0 0 auto;
+    text-align: center;
+    border: 1px solid yellow;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.custom-image {
+    height: 190px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.custom-content {
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    /* Optional: define a background color */
+}
+
+.custom-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.card-img-top {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
 }

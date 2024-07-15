@@ -1,41 +1,44 @@
-import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+
 import { Context } from "../store/appContext";
-import { FaJetFighterUp } from "react-icons/fa6";
+import { VehicleCard } from "../component/vehicleCard";
+export const SingleVehicle = () => {
+	const { store } = useContext(Context);
+	const info = store.infoVehicle;
 
+	const currentID = store.selectedVehicle;
+	const filteredVehicles = store.vehicles.filter(
+		(vehicles) => vehicles.uid !== currentID
+	);
 
-
- export const SingleVehicle = () => {
-    const { id } = useParams();
-    const { actions, store } = useContext(Context);
-    const singleVehicle = store.vehicle
-      ? store.vehicle.find((vehicle) => vehicle.uid === id)
-      : null;
-    if (!singleVehicle) {
-      return <div className="text-center"><h1 className="text-warning">Loading...</h1></div>;
-    }
-    return (
-      <div className="container text-center">
-        
-        <div class="card mb-3 bg-dark">
-          <div className="row g-0">
-            
-            <div className="col-md-8">
-              <div className="card-body bg-warning">
-                <h5 className="card-title">{singleVehicle.properties.name}</h5>
-                <p className="card-text">MODEL: {singleVehicle.properties.model}</p>
-                <p className="card-text">CREW:{singleVehicle.properties.crew}</p>
-                <p className="card-text">
-                  <small className="text-body-secondary">
-                    COST IN CREDITS: {singleVehicle.properties.cost_in_credits}
-                  </small>
-                </p>
-                <FaJetFighterUp/><Link to="/"> Home </Link><FaJetFighterUp/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+	return (
+		<div className="container mt-4 d-flex flex-column min-vh-100">
+			<div className="row altura">
+				<div className="col-md-7 p-0">
+					<img
+						src={store.vehicleImg}
+						alt="Vehicle"
+						className="limited-image"
+					/>
+				</div>
+				<div className="col-md-5 d-flex align-items-center justify-content-center">
+					<div className="text-center">
+						<h4 className="fw-bold">{info.name}</h4>
+						<p className="ms-3 me-3">
+							This is the {info.name}, a {info.vehicle_class} vehicle designed by {info.manufacturer}.
+							It has a model designation of "{info.model}" and costs {info.cost_in_credits} credits.
+							The vehicle measures {info.length} meters in length, can carry a crew of {info.crew},
+							and accommodates up to {info.passengers} passengers. It has a maximum speed of {info.max_atmosphering_speed} in atmospheric conditions.
+							With a cargo capacity of {info.cargo_capacity} units and provisions for {info.consumables}.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll">
+				{filteredVehicles.map((vehicle, index) => (
+					<VehicleCard key={index} body={vehicle}></VehicleCard>
+				))}
+			</div>
+		</div>
+	);
+};

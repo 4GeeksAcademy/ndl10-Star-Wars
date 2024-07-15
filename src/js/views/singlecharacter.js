@@ -1,37 +1,45 @@
-import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+
 import { Context } from "../store/appContext";
-import { FaJedi } from "react-icons/fa";
+import { CharacterCard } from "../component/characterCard";
 
 
+export const SingleCharacter = () => {
+	const { store } = useContext(Context);
+	const info = store.infoCharacter;
 
+	const currentID = store.selectedCharacter;
+	const filteredCharacters = store.characters.filter(
+		(character) => character.uid !== currentID
+	);
 
- export const SingleCharacter = () => {
-    const { id } = useParams();
-    const { actions, store } = useContext(Context);
-    const character = store.people
-      ? store.people.find((people) => people.uid === id)
-      : null;
-    if (!character) {
-      return <div className="text-center"><h1 className="text-warning">Loading...</h1></div>;
-    }
-    return (
-      <div className="container text-center">
-        <div class="card mb-3 bg-dark">
-          <div className="row g-0">
-          {/* <FontAwesomeIcon icon="fa-sharp fa-thin fa-jedi" /> */}
-            <div className="col-md-8">
-              <div className="card-body bg-warning">
-                <h5 className="card-title">{character.properties.name}</h5>
-                <p className="card-text">Gender: {character.properties.gender}</p>
-                <p className="card-text">Mass:{character.properties.mass}</p>
-                <p className="card-text">height: {character.properties.height} </p>
-                <FaJedi/><Link to="/">Home</Link> <FaJedi/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+	return (
+		<div className="container mt-4 d-flex flex-column min-vh-100">
+			<div className="row altura">
+				<div className="col-md-7 p-0">
+					<img
+						src={store.characterImg}
+						alt="Character"
+						className="limited-image"
+					/>
+				</div>
+				<div className="col-md-5 d-flex align-items-center justify-content-center">
+					<div className="text-center">
+						<h4 className="fw-bold">{info.name}</h4>
+						<p className="ms-3 me-3">
+							This is {info.name}, a notable character from the Star Wars universe.
+							He stands {info.height} cm tall and weighs {info.mass} kg. His hair is {info.hair_color} in color,
+							his skin is {info.skin_color}, and his eyes are {info.eye_color}.
+							{info.name} was born in the year {info.birth_year}, and his gender is {info.gender}.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div className="scroll text-white mt-3 d-flex horizontal-scroll ">
+				{filteredCharacters.map((character, index) => (
+					<CharacterCard key={index} body={character}></CharacterCard>
+				))}
+			</div>
+		</div>
+	);
+};

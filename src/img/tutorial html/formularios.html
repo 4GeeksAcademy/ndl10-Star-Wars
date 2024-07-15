@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIOS HTML</title>
+</head>
+<body>
+    <h1> FORMULARIOS </h1>
+    
+    <form method="POST" action="enlace.html" enctype="text/plain">
+        <label for="nombre"> NOMBRE </label>
+        <input type="text" name="nombre" id="nombre" placeholder="nombre"/>
+        <button TYPE="submit"> ENVIAR</button>
+    
+    </form>
+
+    <form enctype="text/plain">
+        <label for="edad"> EDAD </label>
+        <input type="number" name="edad" id="edad" placeholder="edad"/>
+        <input type="submit" value="enviar formulario"/>
+
+
+    </form>
+    <form>
+        <fieldset>
+            <legend>genero y descripcion</legend>
+         <label for="genero"> GENERO </label>
+         <input type="text" name="genero" id="genero" placeholder="genero"/>
+         <input type="submit" value="enviar"/>
+
+         <label for="descripcion">descripcion:</label>
+         <textarea id="descripcion"></textarea>
+         <input type="submit" value="enviar"/>
+        </fieldset> 
+    </form>
+
+    <form>
+        <fieldset>
+            <legend> varios </legend>
+         <p>
+           <label for="aptitudes"> APTITUDES </label>
+           <textarea id="aptitudes" placeholder="describa aqui sus aptitudes"></textarea>
+           <input type="submit" value="enviar"/>
+         </p>
+
+         <div>
+           <label for="altura"> ALTURA </label>
+           <input type="number" name="altura" id="altura" placeholder="altura en cm"/>
+           <input type="submit" value="enviar"/>
+
+         </div>
+
+         <div>
+            <label for="email"> EMAIL: </label>
+            <input type="email"/>
+         </div>
+         <div>
+            Contraseña:
+            <input type="password"/>
+         </div>
+
+         <div>
+            <input type="radio" name="verdadero o falso" id="verdadero" value="verdadero"/>
+            <label for="verdadero o falso"> VERDADERO </label>
+            <input type="radio" name="verdadero o falso" id="falso" value="falso"/>
+            <label for="verdadero o falso"> FALSO </label>
+            <input type="radio" name="verdadero o falso" id=" no se" value="no se"/>
+            <label for="verdadero o falso">NO SE</label>
+         </div>
+         <br>
+         <div>
+            SELECT:
+            <select>
+                <option>VERDADERO</option>
+                <OPTION> FALSO </OPTION>
+                <option> NO SE </option>
+            </select>
+         </div>
+         <br>
+         <div>
+            CHECKBOX:
+            <label>
+                <input type="checkbox" name="estado civil" id="soltero"/> Soltero
+            </label>
+            <label>
+                <input type="checkbox" name="estado civil" id="casado"/> Casado
+            </label>
+            <input type="submit" for="estado civil"/>
+           
+         </div>
+
+         <div>
+            COLOR:
+            <input type="color" name="color" id="color"/>
+            <input for="color" type="submit"/>
+         </div>
+
+         <div>
+            FECHA:
+            <input type="date" name="fecha" id="fecha"/>
+            <input type="submit" for="fecha"/>
+         </div>
+
+         <br>
+         <div>
+              FICHEROS:
+            <input type="file" name="ficheros" id="ficheros"/>
+            <input type="submit" for="ficheros"/>
+         </div>
+         <br>
+         <div>
+            IMAGENES:
+            <input type="image" src="images/armadura berser.jpg" width="50px"/>
+         </div>
+         <br>
+         <div>
+            OCULTO:
+            <input type="hidden" name="oculto" value="griffith no hizo nada malo"/>
+         </div>
+         <br>
+         <div>
+            <input type="range" name="rango" id="rango"/>
+            <input type="submit" for="rango"/>
+         </div>
+
+         <br>
+        </fieldset> 
+        <br>
+        <fieldset>
+            <div>
+                BUSCAR:
+                <input type="search" name="buscar"/>
+                <button> Buscar: </button>           
+            </div>
+            <br>
+            <div>
+                <input type="reset" value="limpiar formulario"/>
+                <input type="submit" value="enviar"/>
+            </div>
+            <br>
+            <div>
+                <input type="tel" name="telefono"/>
+                <button> ENVIAR NUMERO TELEFONO</button>
+            </div>
+            <br>
+            <div>
+                HORA
+                <input type="time"/>
+            </div>
+            <br>
+            <div>
+                MES
+                <input type="month"/>
+            </div>
+            <br>
+            <div>
+                URL
+                <input type="url"/>
+            </div>
+            <br>
+            <div>
+                barra de progreso:
+                <progress min="1" max="200"></progress>
+            </div>
+            <br>
+            <div>
+                MEDIDOR:
+                <meter min="0" max="200"></meter>
+            </div>
+
+            <br>
+            <div>
+                LISTA DE DATOS:
+                <input list="frutas" name="fruta"/>
+                <datalist id="frutas">
+                    <option value="platanos" />
+                    <option value="fresas" />
+                    <option value="cerezas" />
+                </datalist>
+            </div>
+        </fieldset>
+    </form>
+    <br>
+    <h1>VALIDACIÓN</h1>
+    <form>
+        <fieldset>
+            <div>
+              <input type="text" required minlength="20" maxlength="22" pattern="A-Z a-z"/>
+              <input type="submit" value="enviar"/>
+            </div>
+            <br>
+            <div>
+                <input type="number" required min="0" max="10"/>
+            </div>
+            <br>
+
+
+        </fieldset>
+       
+
+    </form>
+    
+</body>
+</html>

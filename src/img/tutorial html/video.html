@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonrisa en CSS</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .cara {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #000;
+            border-radius: 75px;
+            background: #fff;
+            overflow: hidden;
+        }
+        .boca {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 60px;
+            border: 3px solid #000;
+            border-top: none;
+            border-radius: 50px/25px;
+            background: #fff;
+            z-index: 1;
+        }
+        .labios {
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 25px;
+            border: 3px solid #000;
+            border-top: none;
+            border-radius: 40px/15px;
+            background: #f00;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="cara">
+        <div class="boca"></div>
+        <div class="labios"></div>
+    </div>
+    <h1> VIDEOS HTML</h1>
+<!--forma 1-->
+<video src="aqui pongo el video" controls autoplay muted>
+    tu navegador no soporta la etiqueta video
+    <!--forma 2-->
+    <video controls poster="images/armadura berser.jpg">
+        <source src="aqui pongo el video" type="video/mp4"/>
+
+    </video>
+
+</video>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
